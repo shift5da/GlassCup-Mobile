@@ -10,7 +10,7 @@ set :show_exceptions, :after_handler if development?
 
 
 get '/' do
-  erb :'welcome'
+  erb :'login', :layout => :layout_blank
 end
 
 get '/welcome' do
