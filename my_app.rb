@@ -9,26 +9,47 @@ set :public_folder, File.dirname(__FILE__) + '/static'
 set :show_exceptions, :after_handler if development?
 
 
+
 get '/' do
   erb :'login', :layout => :layout_blank
 end
 
-get '/welcome' do
-  erb :'welcome'
+get '/:role_name/welcome' do
+  erb :"#{params['role_name']}/welcome"
 end
 
-get '/around' do
-  erb :'around'
+get '/:role_name/task' do
+  erb :"#{params['role_name']}/task"
 end
 
-get '/asset' do
-  erb :'asset'
+get '/:role_name/task/:task_id' do
+  erb :"#{params['role_name']}/task_#{params['task_id']}"
 end
 
-get '/task' do
-  erb :'task'
+get '/:role_name/task/:task_id/handler' do
+  erb :"#{params['role_name']}/task_#{params['task_id']}_handler"
 end
 
-get '/daily' do
-  erb :'daily'
+get '/:role_name/around' do
+  erb :"#{params['role_name']}/around"
+end
+
+get '/:role_name/daily' do
+  erb :"#{params['role_name']}/daily"
+end
+
+get '/:role_name/alert' do
+  erb :"#{params['role_name']}/alert"
+end
+
+get '/:role_name/alert/:alert_id' do
+  erb :"#{params['role_name']}/alert_#{params['alert_id']}"
+end
+
+get '/:role_name/alert/:alert_id/handler' do
+  erb :"#{params['role_name']}/alert_#{params['alert_id']}_handler"
+end
+
+get '/:role_name/information' do
+  erb :"#{params['role_name']}/information"
 end

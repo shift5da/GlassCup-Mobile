@@ -1,0 +1,157 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+    任务情况
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_text">
+      <h4 class="weui-media-box__title">光交箱倾斜抢修</h4>
+      <p class="weui-media-box__desc">徐汇光交箱体GJ009被车辆撞击后倾斜</p>
+    </div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">任务编号</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="GJ-Alert-20170613142315" readonly/>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">指派时间</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="2017-6-13 14:23:15" readonly/>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">完成时间</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="2017-6-15 12:00:00" readonly/>
+          <span class="weui-badge" style="margin-left: 5px;">剩余2天3小时</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">任务执行人</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="张强，13812341234" readonly/>
+        </div>
+      </div>
+    </div>
+    <div id="my_map" style="height:300px;"></div>
+
+  </div>
+</div>
+
+
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-random" aria-hidden="true"></i>
+    流程示意图
+  </div>
+  <div class="weui-panel__bd">
+    <div class="ystep1" style="margin: 20px;"></div>
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+    任务填报
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <div class="weui-uploader">
+          <div class="weui-uploader__hd">
+            <p class="weui-uploader__title">图片上传</p>
+            <div class="weui-uploader__info">3/4</div>
+          </div>
+          <div class="weui-uploader__bd">
+            <ul class="weui-uploader__files" id="uploaderFiles">
+              <li class="weui-uploader__file" style="background-image:url(/images/occ_broken.jpg)"></li>
+              <li class="weui-uploader__file" style="background-image:url(/images/occ_broken.jpg)"></li>
+              <li class="weui-uploader__file" style="background-image:url(/images/occ_broken.jpg)"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="请输入文本" rows="3">现场情况已经核实，没有影响到光纤，需要更换光交箱</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    update_map();
+    change_tab_active('tab_menu_3');
+  });
+
+  $(".ystep1").loadStep({
+    //ystep的外观大小
+    //可选值：small,large
+    size: "small",
+    //ystep配色方案
+    //可选值：green,blue
+    color: "green",
+    //ystep中包含的步骤
+    steps: [{
+      //步骤名称
+      title: "发起",
+      //步骤内容(鼠标移动到本步骤节点时，会提示该内容)
+      content: "发起处理流程"
+    },{
+      title: "现场勘查",
+      content: "处理人员在现场进行勘查"
+    },{
+      title: "现场施工",
+      content: "处理人员在现场进行施工"
+    },{
+      title: "结束",
+      content: "完成此任务"
+    }]
+  });
+
+  $(".ystep1").setStep(2);
+
+  function update_map() {
+    map = new AMap.Map('my_map', {
+      resizeEnable: true,
+      zoom: 16,
+      //mapStyle: 'amap://styles/whitesmoke',
+      center: [102.25548, 27.890265]
+    });
+
+    AMapUI.loadUI(['overlay/AwesomeMarker'], function (AwesomeMarker) {
+      marker = new AwesomeMarker({
+        //设置awesomeIcon
+        awesomeIcon: 'building-o',
+        iconLabel: {
+          style: {
+            color: '#333',
+            fontSize: '14px'
+          }
+        },
+        iconStyle: 'blue',
+        map: map,
+        position: [
+          102.25548, 27.890265
+        ],
+        title: '攀西花园'
+      });
+    });
+  }
+</script>

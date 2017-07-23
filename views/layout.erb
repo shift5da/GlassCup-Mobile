@@ -22,6 +22,10 @@
     <!-- ECharts JavaScript -->
     <script src="/echarts/echarts.common.min.js"></script>
 
+    <!-- ystep -->
+    <link rel="stylesheet" href="/ystep/css/ystep.css">
+    <script src="/ystep/js/ystep.js"></script>
+
     <script src="/zepto/zepto.min.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
@@ -35,32 +39,7 @@
         <%= yield %>
       </div>
       <div class="weui-tabbar">
-        <a href="/welcome" class="weui-tabbar__item" id='tab_menu_1'>
-          <img src="/images/twg_retina_icon/home_64.png" alt="" class="weui-tabbar__icon">
-          <p class="weui-tabbar__label">首页</p>
-        </a>
-        <a href="/task" class="weui-tabbar__item" id='tab_menu_2'>
-          <span style="display: inline-block;position: relative;">
-            <img src="/images/twg_retina_icon/alarm_check_64.png" alt="" class="weui-tabbar__icon">
-            <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
-          </span>
-          <p class="weui-tabbar__label">任务</p>
-        </a>
-        <a href="/around" class="weui-tabbar__item" id='tab_menu_3'>
-          <span style="display: inline-block;position: relative;">
-            <img src="/images/twg_retina_icon/magnifier_64.png" alt="" class="weui-tabbar__icon">
-            <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
-          </span>
-          <p class="weui-tabbar__label">发现</p>
-        </a>
-        <a href="/asset" class="weui-tabbar__item" id='tab_menu_4'>
-          <img src="/images/twg_retina_icon/tray_full_64.png" alt="" class="weui-tabbar__icon">
-          <p class="weui-tabbar__label">资源</p>
-        </a>
-        <a href="/daily" class="weui-tabbar__item" id='tab_menu_5'>
-          <img src="/images/twg_retina_icon/hat_64.png" alt="" class="weui-tabbar__icon">
-          <p class="weui-tabbar__label">日常</p>
-        </a>
+        <%= erb :"_layout_menu_#{params[:role_name]}"%>
       </div>
     </div>
 

@@ -1,0 +1,122 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+    告警情况
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_text">
+      <h4 class="weui-media-box__title">光交箱倾斜告警</h4>
+      <p class="weui-media-box__desc">徐汇光交箱体GJ009被车辆撞击后倾斜，但是没有倒</p>
+    </div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">告警编号</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="GJ-Alert-20170613142315" readonly/>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">告警时间</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="2017-6-13 14:23:15" readonly/>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">任务执行人</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="张强，13812341234" readonly/>
+        </div>
+      </div>
+    </div>
+    <div id="my_map" style="height:300px;"></div>
+
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__bd">
+    <img src="/images/occ_broken.jpg" alt="">
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-random" aria-hidden="true"></i>
+    流程示意图
+  </div>
+  <div class="weui-panel__bd">
+    <div class="ystep1" style="margin: 20px;"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    update_map();
+    change_tab_active('tab_menu_3');
+  });
+
+  $(".ystep1").loadStep({
+    //ystep的外观大小
+    //可选值：small,large
+    size: "small",
+    //ystep配色方案
+    //可选值：green,blue
+    color: "green",
+    //ystep中包含的步骤
+    steps: [{
+      //步骤名称
+      title: "发起",
+      //步骤内容(鼠标移动到本步骤节点时，会提示该内容)
+      content: "发起处理流程"
+    },{
+      title: "现场勘查",
+      content: "处理人员在现场进行勘查"
+    },{
+      title: "数据核实",
+      content: "与资管系统进行数据对比"
+    },{
+      title: "数据同步",
+      content: "将准备的数据同步到资管系统中"
+    },{
+      title: "结项",
+      content: "完成此告警处理流程"
+    }]
+  });
+
+  $(".ystep1").setStep(2);
+
+  function update_map() {
+    map = new AMap.Map('my_map', {
+      resizeEnable: true,
+      zoom: 16,
+      //mapStyle: 'amap://styles/whitesmoke',
+      center: [102.25548, 27.890265]
+    });
+
+    AMapUI.loadUI(['overlay/AwesomeMarker'], function (AwesomeMarker) {
+      marker = new AwesomeMarker({
+        //设置awesomeIcon
+        awesomeIcon: 'building-o',
+        iconLabel: {
+          style: {
+            color: '#333',
+            fontSize: '14px'
+          }
+        },
+        iconStyle: 'blue',
+        map: map,
+        position: [
+          102.25548, 27.890265
+        ],
+        title: '攀西花园'
+      });
+    });
+  }
+</script>

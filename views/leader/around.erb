@@ -1,9 +1,6 @@
-<%= erb :'_search'%>
-
 <div class="weui-panel">
   <div class="weui-panel__bd">
-    <div id="my_map" style="height:300px;">
-    </div>
+    <div id="my_map" style="height:400px;"></div>
   </div>
 </div>
 
@@ -42,39 +39,37 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){
+  $(document).ready(function () {
 
-  update_map();
-  change_tab_active('tab_menu_3');
-});
-
-
-function update_map() {
-  map = new AMap.Map('my_map', {
-    resizeEnable: true,
-    zoom: 16,
-    //mapStyle: 'amap://styles/whitesmoke',
-    center: [102.25548, 27.890265]
+    update_map();
+    change_tab_active('tab_menu_3');
   });
 
-  AMapUI.loadUI(['overlay/AwesomeMarker'], function(AwesomeMarker) {
-    marker = new AwesomeMarker({
-      //设置awesomeIcon
-      awesomeIcon: 'building-o',
-      iconLabel: {
-        style: {
-          color: '#333',
-          fontSize: '14px'
-        }
-      },
-      iconStyle: 'blue',
-      map: map,
-      position: [
-        102.25548, 27.890265
-      ],
-      title: '攀西花园'
+  function update_map() {
+    map = new AMap.Map('my_map', {
+      resizeEnable: true,
+      zoom: 16,
+      //mapStyle: 'amap://styles/whitesmoke',
+      center: [102.25548, 27.890265]
     });
-  });
-}
 
+    AMapUI.loadUI(['overlay/AwesomeMarker'], function (AwesomeMarker) {
+      marker = new AwesomeMarker({
+        //设置awesomeIcon
+        awesomeIcon: 'building-o',
+        iconLabel: {
+          style: {
+            color: '#333',
+            fontSize: '14px'
+          }
+        },
+        iconStyle: 'blue',
+        map: map,
+        position: [
+          102.25548, 27.890265
+        ],
+        title: '攀西花园'
+      });
+    });
+  }
 </script>

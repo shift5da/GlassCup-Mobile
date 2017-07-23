@@ -1,0 +1,133 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+    告警情况
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_text">
+      <h4 class="weui-media-box__title">一干光缆阻断</h4>
+      <p class="weui-media-box__desc">清沪光缆2，万荣-回城，15.37公里处，万寿路与江海路交界处处被第三方施工破坏，施工机械为重型挖掘机</p>
+    </div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">告警编号</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="GJ-Alert-20170613142315" readonly/>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">告警时间</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="2017-6-13 14:23:15" readonly/>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">告警来源</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="张强，13812341234" readonly/>
+        </div>
+      </div>
+    </div>
+    <div id="my_map" style="height:300px;"></div>
+
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-random" aria-hidden="true"></i>
+    流程示意图
+  </div>
+  <div class="weui-panel__bd">
+    <div class="ystep1" style="margin: 20px;"></div>
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+    现场情况
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <div class="weui-uploader">
+          <div class="weui-uploader__hd">
+            <p class="weui-uploader__title">2017-6-13 18:34:25</p>
+            <div class="weui-uploader__info">3/4</div>
+          </div>
+          <div class="weui-uploader__bd">
+            <ul class="weui-uploader__files" id="uploaderFiles">
+              <li class="weui-uploader__file" style="background-image:url(/images/cable_broken.jpg)"></li>
+              <li class="weui-uploader__file" style="background-image:url(/images/cable_broken.jpg)"></li>
+              <li class="weui-uploader__file" style="background-image:url(/images/cable_broken.jpg)"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="weui-uploader">
+          <div class="weui-uploader__hd">
+            <p class="weui-uploader__title">2017-6-13 16:24:25</p>
+            <div class="weui-uploader__info">3/4</div>
+          </div>
+          <div class="weui-uploader__bd">
+            <ul class="weui-uploader__files" id="uploaderFiles">
+              <li class="weui-uploader__file" style="background-image:url(/images/cable_broken.jpg)"></li>
+              <li class="weui-uploader__file" style="background-image:url(/images/cable_broken.jpg)"></li>
+              <li class="weui-uploader__file" style="background-image:url(/images/cable_broken.jpg)"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="请输入文本" rows="3">正在进行熔接</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    update_map();
+    change_tab_active('tab_menu_3');
+  });
+
+  function update_map() {
+    map = new AMap.Map('my_map', {
+      resizeEnable: true,
+      zoom: 16,
+      //mapStyle: 'amap://styles/whitesmoke',
+      center: [102.25548, 27.890265]
+    });
+
+    AMapUI.loadUI(['overlay/AwesomeMarker'], function (AwesomeMarker) {
+      marker = new AwesomeMarker({
+        //设置awesomeIcon
+        awesomeIcon: 'building-o',
+        iconLabel: {
+          style: {
+            color: '#333',
+            fontSize: '14px'
+          }
+        },
+        iconStyle: 'blue',
+        map: map,
+        position: [
+          102.25548, 27.890265
+        ],
+        title: '攀西花园'
+      });
+    });
+  }
+</script>

@@ -503,3 +503,33 @@ ul {
     -webkit-animation: b .2s forwards;
     animation: b .2s forwards
 }
+
+
+
+.weui-media-box__subtitle {
+  color: #586C94;
+  font-weight: 400;
+  font-size: 15px;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-bottom: 10px;
+}
+
+.weui-media-box__subtitle_warning {
+  color: #a3435c;
+  font-weight: 400;
+  font-size: 15px;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-bottom: 10px;
+}

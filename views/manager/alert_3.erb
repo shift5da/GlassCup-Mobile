@@ -1,0 +1,84 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+    告警情况
+  </div>
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_text">
+      <h4 class="weui-media-box__title">光缆上方第三方施工告警</h4>
+      <p class="weui-media-box__desc">文昌路和嘉禾路交界处有第三方施工</p>
+    </div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">告警编号</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="GJ-Alert-20170613142315" readonly/>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">告警时间</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="2017-6-13 14:23:15" readonly/>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">告警来源</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" placeholder="智能管道第三方施工预警系统" readonly/>
+        </div>
+      </div>
+    </div>
+    <div id="my_map" style="height:300px;"></div>
+
+  </div>
+</div>
+
+
+<div class="weui-panel">
+  <div class="weui-panel__bd">
+    <a href="/<%= params[:role_name]%>/alert/<%= params[:alert_id]%>/handler" class="weui-btn weui-btn_primary">新建告警处理任务</a>
+    <a href="/<%= params[:role_name]%>/alert" class="weui-btn weui-btn_warn">忽略此告警</a>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    update_map();
+    change_tab_active('tab_menu_3');
+  });
+
+  function update_map() {
+    map = new AMap.Map('my_map', {
+      resizeEnable: true,
+      zoom: 16,
+      //mapStyle: 'amap://styles/whitesmoke',
+      center: [102.25548, 27.890265]
+    });
+
+    AMapUI.loadUI(['overlay/AwesomeMarker'], function (AwesomeMarker) {
+      marker = new AwesomeMarker({
+        //设置awesomeIcon
+        awesomeIcon: 'building-o',
+        iconLabel: {
+          style: {
+            color: '#333',
+            fontSize: '14px'
+          }
+        },
+        iconStyle: 'blue',
+        map: map,
+        position: [
+          102.25548, 27.890265
+        ],
+        title: '攀西花园'
+      });
+    });
+  }
+</script>

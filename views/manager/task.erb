@@ -1,0 +1,73 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-automobile" aria-hidden="true"></i>
+    正在执行的巡检任务</div>
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_text">
+      <a class="weui-cell_access" href="/<%= params[:role_name] %>/task/1">
+        <h4 class="weui-media-box__title">徐汇光交巡检任务</h4>
+        <h4 class="weui-media-box__subtitle">当前处理节点：已派单</h4>
+        <p class="weui-media-box__desc">徐汇光交20～40环，共85个光交箱</p>
+        <ul class="weui-media-box__info">
+          <li class="weui-media-box__info__meta"></li>
+          <li class="weui-media-box__info__meta">2017-6-1</li>
+          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">巡检人：张强，13812341234</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-wrench" aria-hidden="true"></i>
+    正在执行的抢修任务</div>
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_text">
+      <a class="weui-cell_access" href="/<%= params[:role_name] %>/task/2">
+        <h4 class="weui-media-box__title">光交箱倾斜抢修</h4>
+        <h4 class="weui-media-box__subtitle">当前处理节点：已派单</h4>
+        <p class="weui-media-box__desc">徐汇光交箱体GJ009被车辆撞击后倾斜</p>
+        <ul class="weui-media-box__info">
+          <li class="weui-media-box__info__meta"></li>
+          <li class="weui-media-box__info__meta">2017-6-1</li>
+          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">抢修负责人：张强，13812341234</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-cogs" aria-hidden="true"></i>
+    正在执行的检修任务</div>
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_text">
+      <a class="weui-cell_access" href="/<%= params[:role_name] %>/task/3">
+        <h4 class="weui-media-box__title">光交箱内部跳纤错误检查</h4>
+        <h4 class="weui-media-box__subtitle">当前处理节点：已派单</h4>
+        <p class="weui-media-box__desc">徐汇光交箱体GJ008 A盘8、9号口有问题，资源系统上显示的没有被占用，实际上被占用</p>
+        <ul class="weui-media-box__info">
+          <li class="weui-media-box__info__meta"></li>
+          <li class="weui-media-box__info__meta">2017-6-1</li>
+          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">检修负责人：张强，13812341234</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd">
+    <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+    正在执行的其他任务</div>
+  <div class="weui-panel__bd">
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    change_tab_active('tab_menu_4');
+  });
+</script>
